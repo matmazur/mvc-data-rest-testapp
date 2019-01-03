@@ -8,7 +8,14 @@
     <title>Home page</title>
 </head>
 <body>
-
 <h1>Hello World!</h1>
+
+<h2>Add city</h2>
+<form th:method="post" th:action="@{/cities}" th:object="${formCity}">
+    <input type="text" th:placeholder="name" th:field="*{name}">
+    <input type="number" th:placeholder="population" th:field="*{population}">
+    <input type="submit" value="Add city">
+</form>
+<a th:href="@{/cities}">List of cities</a>
 </body>
 </html>

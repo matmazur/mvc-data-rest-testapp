@@ -8,6 +8,14 @@ public class MvcDataRestTestappApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MvcDataRestTestappApplication.class, args);
+
+
+        StringBuilder jobFinder = new StringBuilder()
+                .append("Junior Java developer")
+                .append("looking for a job")
+                .append("GDANSK");
+
+        System.out.println(jobFinder);
     }
 }
 

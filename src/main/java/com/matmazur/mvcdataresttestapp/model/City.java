@@ -1,10 +1,11 @@
 package com.matmazur.mvcdataresttestapp.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class City {
+public class City implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,6 +46,10 @@ public class City {
         this.population = population;
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public String toString() {
         return "City{" +
@@ -67,5 +72,26 @@ public class City {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, population);
+    }
+
+
+    public static class Builder {
+
+        private String name;
+        private Long population;
+
+        public Builder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder withPopulation(Long population) {
+            this.population = population;
+            return this;
+        }
+
+        public City build() {
+            return new City(name, population);
+        }
     }
 }

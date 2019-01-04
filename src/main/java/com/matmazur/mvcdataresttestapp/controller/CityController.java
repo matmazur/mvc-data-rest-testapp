@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -35,10 +36,10 @@ public class CityController {
     }
 
     @PostMapping
-    public String saveCity(@ModelAttribute City formCity, ModelMap modelMap) {
+    public String saveCity(@ModelAttribute City formCity, RedirectAttributes attributes) {
         if (!formCity.getName().isEmpty()) {
             cityRepository.save(formCity);
-            modelMap.put("message", "City added");
+            attributes.addFlashAttribute("message", "City has been added");
         }
         return "redirect:/";
     }

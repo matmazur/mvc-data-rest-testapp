@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>City list</title>
+</head>
+<body>
+<h1>List of cities</h1>
+<table border="1">
+    <th>id</th>
+    <th>name</th>
+    <th>population</th>
+    <tr th:if="${!cities.isEmpty()}" th:each="city : ${cities}" th:object="${city}">
+        <td th:text="*{id}">2</td>
+        <td th:text="*{name}">Minsk</td>
+        <td th:text="*{population}">3432</td>
+    </tr>
+</table>
+
+</body>
+</html>

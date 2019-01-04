@@ -1,17 +1,18 @@
 package com.matmazur.mvcdataresttestapp.model;
 
-import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
+@XmlRootElement
 public class CityWrapper {
 
-    private List<City> list = new ArrayList<>();
+    private List<City> cities;
 
-    public List<City> getList() {
-        return list;
+    public List<City> getCities() {
+        return cities;
     }
 
-    public void setList(List<City> list) {
-        this.list = list;
+    public void setCities(List<City> cities) {
+        this.cities = cities;
     }
 }
